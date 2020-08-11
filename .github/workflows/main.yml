@@ -25,7 +25,7 @@ jobs:
       env:
         CHATID: ${{ secrets.CHATID }} 
     - name: Add My ID
-      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/$ENV{OWNERID}/' config-sample.js
+      run: perl -pi -e 's/YOUR_TELEGRAM_ID/$ENV{OWNERID}/' config-sample.js
       env:
         OWNERID: ${{ secrets.OWNERID }}
     - run: docker build --tag supportbot_telegram:latest .
