@@ -1,0 +1,39 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Add TG API Token
+      run: perl -pi -e 's/YOUR_BOT_TOKEN/"$ENV{TGTOKEN}"/' config-sample.js
+      env:
+        TGTOKEN: ${{ secrets.TGTOKEN }}
+    - name: Add Chat ID
+      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/"$ENV{CHATID}"/' config-sample.js
+      env:
+        CHATID: ${{ secrets.CHATID }} 
+    - name: Add My ID
+      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/"$ENV{MYID}"/' config-sample.js
+      env:
+        MYID: ${{ secrets.MYID }}  
+    - uses: kciter/aws-ecr-action@v1
+      with:
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+        repo: 957509473520.dkr.ecr.eu-central-1.amazonaws.com/githubactionsrepo
+        region: eu-central-1
+        tags: latest,${{ github.sha }}
+        create_repo: true
