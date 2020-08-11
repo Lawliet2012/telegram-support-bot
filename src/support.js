@@ -107,7 +107,7 @@ bot.command('open', (ctx) => {
             setTimeout(function() {
               bot.telegram.sendMessage(
                   chat.id,
-                  '<b>Open Tickets:\n\n</b>' + openTickets,
+                  '<b>Открытые заявки:\n\n</b>' + openTickets,
                   cache.noSound
               );
             }, 10);
@@ -135,7 +135,7 @@ bot.command('close', (ctx) => {
           dbhandler.add(userid[1], 'closed');
           bot.telegram.sendMessage(
               chat.id,
-              'Ticket <code>#t'+userid[1]+'</code> closed',
+              'Заявка <code>#t'+userid[1]+'</code> закрыта',
               cache.noSound
           );
         }
