@@ -10,4 +10,4 @@ RUN git clone https://github.com/Lawliet2012/telegram-support-bot && \
 
 COPY config-sample.js /telegram-support-bot/config.js
 
-CMD ["node", "/telegram-support-bot/src/support.js"]
+
