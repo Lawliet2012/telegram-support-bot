@@ -9,7 +9,7 @@
           "logDriver": "awslogs",
           "secretOptions": null,
           "options": {
-            "awslogs-group": "/ecs/telegram-supportbot",
+            "awslogs-group": "/ecs/supportbot_telegram",
             "awslogs-region": "eu-central-1",
             "awslogs-stream-prefix": "ecs"
           }
@@ -31,7 +31,7 @@
         "memoryReservation": null,
         "volumesFrom": [],
         "stopTimeout": null,
-        "image": "957509473520.dkr.ecr.eu-central-1.amazonaws.com/githubactionsrepo",
+        "image": "957509473520.dkr.ecr.eu-central-1.amazonaws.com/supportbot_telegram",
         "startTimeout": null,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -48,7 +48,7 @@
         "dockerLabels": null,
         "systemControls": null,
         "privileged": null,
-        "name": "telegram-supportbot"
+        "name": "supportbot_telegram"
       }
     ],
     "placementConstraints": [],
