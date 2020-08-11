@@ -17,17 +17,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Add TG API Token
-      run: perl -pi -e 's/YOUR_BOT_TOKEN/"$ENV{TGTOKEN}"/' config-sample.js
+      run: perl -pi -e 's/YOUR_BOT_TOKEN/$ENV{TGTOKEN}/' config-sample.js
       env:
         TGTOKEN: ${{ secrets.TGTOKEN }}
     - name: Add Chat ID
-      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/"$ENV{CHATID}"/' config-sample.js
+      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/$ENV{CHATID}/' config-sample.js
       env:
         CHATID: ${{ secrets.CHATID }} 
     - name: Add My ID
-      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/"$ENV{MYID}"/' config-sample.js
+      run: perl -pi -e 's/SUPERGROUP_CHAT_ID/$ENV{OWNERID}/' config-sample.js
       env:
-        MYID: ${{ secrets.MYID }}  
+        OWNERID: ${{ secrets.OWNERID }}
     - run: docker build --tag supportbot_telegram:latest .
     - name: Push to ECR
       id: ecr
