@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: supportbot-telegram
+  name: supportbot_telegram
 spec:
   replicas: 1
   strategy:
@@ -11,14 +11,14 @@ spec:
   minReadySeconds: 5
   selector:
       matchLabels:
-        app: supportbot-telegram
+        app: supportbot_telegram
   template:
     metadata:
       labels:
-        app: supportbot-telegram
+        app: supportbot_telegram
     spec:
       containers:
-      - name: supportbot-telegram
+      - name: supportbot_telegram
         image: gcr.io/PROJECT_ID/IMAGE:TAG
         ports:
         - containerPort: 5000

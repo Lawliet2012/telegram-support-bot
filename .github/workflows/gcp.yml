@@ -12,7 +12,7 @@ env:
   GKE_CLUSTER:  my-first-cluster-1
   IMAGE: supportbot_telegram
   REGISTRY_HOSTNAME: eu.gcr.io
-  DEPLOYMENT_NAME: supportbot_telegram
+  DEPLOYMENT_NAME: ssupportbot_telegram
 
 jobs:
   setup-build-publish-deploy:
