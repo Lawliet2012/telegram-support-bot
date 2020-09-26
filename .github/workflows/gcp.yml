@@ -8,8 +8,8 @@ on:
 env:
   GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
   GITHUB_SHA: ${{ github.sha }}
-  GKE_ZONE: europe-west2-a
-  GKE_CLUSTER:  my-first-cluster-1
+  GKE_ZONE: europe-west3-a
+  GKE_CLUSTER:  nsalab-gke-cluster-euwe3a-primary-01
   IMAGE: supportbot_telegram
   REGISTRY_HOSTNAME: eu.gcr.io
   DEPLOYMENT_NAME: supportbot-telegram
